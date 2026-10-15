@@ -156,7 +156,8 @@ function showPage(id) {
 
 function route() {
   const hash = (location.hash || "#home").slice(1);
-  const [page, col] = hash.split("/");
+  const [page, colRaw] = hash.split("/");
+  const col = colRaw ? decodeURIComponent(colRaw) : "";
   $("#menu").classList.remove("open");
   $("#searchLayer").classList.remove("open");
   if (page === "catalog") {
