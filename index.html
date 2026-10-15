@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DEMT</title>
+  <meta name="description" id="metaDesc" content="Магазин. Доставка Новою Поштою по Україні." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" id="ogTitle" content="NOVA" />
+  <meta property="og:description" id="ogDesc" content="Каталог. Доставка Новою Поштою. Замовлення в Telegram." />
+  <meta property="og:image" id="ogImage" content="images/cover.svg" />
+  <meta property="og:url" id="ogUrl" content="" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="images/cover.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="gate" id="gate">
+    <div class="gate-card">
+      <div class="gate-mark">18+</div>
+      <div class="age-pill">18+</div>
+      <h2 id="ageTitle">Вам є 18 років?</h2>
+      <div class="sub" id="ageSub">МАГАЗИН ДЛЯ ПОВНОЛІТНІХ</div>
+      <p id="ageText">Для входу вам має бути щонайменше 18 років.</p>
+      <div class="gate-actions">
+        <button class="btn btn-lime" id="yesAge">Так, мені є 18</button>
+        <button class="btn btn-dark" id="noAge">Ні, вивести мене</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="announce"><div class="announce-track" id="announceTrack"></div></div>
+
+  <header class="header">
+    <div class="wrap header-row">
+      <button class="icon" id="menuBtn" aria-label="Меню">
+        <svg width="22" height="14" viewBox="0 0 22 14" fill="none"><path d="M0 1h22M0 7h22M0 13h22" stroke="#fff" stroke-width="1.6"/></svg>
+      </button>
+      <a class="logo" href="#home" id="logoLink"><span id="shopName">DEMT</span><i id="logoDot"></i></a>
+      <div class="right-icons">
+        <button class="icon" id="searchBtn" aria-label="Пошук">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#fff" stroke-width="1.8"/><path d="M20 20l-3.5-3.5" stroke="#fff" stroke-width="1.8"/></svg>
+        </button>
+        <button class="icon rel" id="cartBtn" aria-label="Кошик">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 7h15l-1.6 9.2H8.2L6 7zm0 0L5 4H2" stroke="#fff" stroke-width="1.7"/><circle cx="9" cy="20" r="1.3" fill="#fff"/><circle cx="18" cy="20" r="1.3" fill="#fff"/></svg>
+          <span class="badge-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="menu" id="menu">
+    <div class="menu-top"><span>МЕНЮ</span><button class="icon" id="closeMenu">✕</button></div>
+    <nav id="menuNav"></nav>
+  </div>
+
+  <div class="search-layer" id="searchLayer">
+    <div class="search-wrap">
+      <input class="search-box" id="search" placeholder="Назва, категорія, опис..." autocomplete="off" />
+      <div class="suggest" id="suggest"></div>
+    </div>
+  </div>
+
+  <main>
+    <section class="page on" id="page-home">
+      <div class="hero-stage">
+        <div class="wrap home-hero">
+          <h1 class="hero-title">
+            <span class="out" id="heroOutline">ЗБЕРИ</span>
+            <span class="lime" id="heroLime">ІДЕАЛЬНИЙ НАБІР</span>
+          </h1>
+          <p class="hero-lead" id="heroText">Пристрої, картриджі та аксесуари. Швидка доставка, перевірені позиції.</p>
+          <a class="cta-lime" href="#catalog/all" id="catalogBtn">Весь каталог →</a>
+          <a class="cta-ghost" href="#contact" id="managerBtn">✈ Звʼязатися з менеджером</a>
+        </div>
+      </div>
+      <div class="wrap" id="homeSections"></div>
+      <div class="wrap" id="homeTrust"></div>
+    </section>
+
+    <section class="page" id="page-catalog">
+      <div class="wrap col-head">
+        <div class="col-meta">
+          <span><span class="dot-lime"></span>// КАТАЛОГ</span>
+          <span id="resultCount">0 результатів</span>
+        </div>
+        <h1 id="colTitle">Под-системи</h1>
+        <div class="tools">
+          <select class="tool" id="filterSel" aria-label="Категорія"></select>
+          <select class="tool" id="sortSel">
+            <option value="rec">Рекомендовані</option>
+            <option value="new">Новинки</option>
+            <option value="price-asc">Дешевші</option>
+            <option value="price-desc">Дорожчі</option>
+          </select>
+        </div>
+      </div>
+      <div class="wrap grid" id="grid"></div>
+    </section>
+
+    <section class="page" id="page-delivery">
+      <div class="wrap col-head">
+        <div class="col-meta"><span><span class="dot-lime"></span>// ДОСТАВКА</span></div>
+        <h1>Доставка і оплата</h1>
+      </div>
+      <div class="wrap page-text">
+        <h3 style="color:#fff;margin:16px 0 8px">Доставка</h3>
+        <p>Відправляємо Новою Поштою по всій Україні. Зазвичай передаємо в відділення протягом 24 годин після підтвердження в Telegram.</p>
+        <h3 style="color:#fff;margin:16px 0 8px">Оплата</h3>
+        <p> оплата за реквізитами карта, криптовалюта, paypal, crypto після того, як менеджер підтвердить замовлення.</p>
+        <h3 style="color:#fff;margin:16px 0 8px">Як замовити</h3>
+        <p>Додайте товар у кошик і натисніть «Оформити в Telegram». Або напишіть менеджеру з картки товару. У чаті вкажіть місто й відділення.</p>
+        <h3 style="color:#fff;margin:16px 0 8px">Наявність</h3>
+        <p>Позиції з позначкою «Немає в наявності» замовити через кошик не можна. Можна лише уточнити в менеджера, коли з’явиться.</p>
+      </div>
+    </section>
+
+    <section class="page" id="page-about">
+      <div class="wrap col-head">
+        <div class="col-meta"><span><span class="dot-lime"></span>// ПРО НАС</span></div>
+        <h1>Про магазин</h1>
+      </div>
+      <div class="wrap page-text">
+        Наш магазин надає широкий асортимент натуральної продукції коноплі/каннабісу від найкращих виробників Європи.
+
+    Ми працюємо з найкращими Європейськими виробниками повного циклу виробництва від вирощування преміум сортів канабісу для подальшого отримання найчистішого екстракту «дистилят» (TGK)
+    Працюємо з 2020 року, маємо великий досвід у сфері продажу та доставки продукції коноплі/каннабісу по всій Україні. Ми гарантуємо якість та безпеку нашої продукції, а також швидку та надійну доставку до вашого міста.
+      </div>
+    </section>
+
+    <section class="page" id="page-contact">
+      <div class="wrap col-head">
+        <div class="col-meta"><span><span class="dot-lime"></span>// КОНТАКТИ</span></div>
+        <h1>Звʼязок з нами</h1>
+      </div>
+      <div class="wrap page-text">
+        <p>Телефон: <a id="phoneLink" href="#">+380 00 000 00 00</a></p>
+        <p>Пошта: <a id="mailLink" href="#">your@email.com</a></p>
+        <p><a id="tgLink" href="#" target="_blank" rel="noopener">Telegram</a> · <a id="igLink" href="#" target="_blank" rel="noopener">Instagram</a></p>
+      </div>
+    </section>
+
+    <section class="page" id="page-privacy">
+      <div class="wrap col-head">
+        <div class="col-meta"><span><span class="dot-lime"></span>// ПРАВОВЕ</span></div>
+        <h1>Політика конфіденційності</h1>
+      </div>
+      <div class="wrap page-text">
+        Ми не збираємо і не зберігаємо жодних персональних даних.
+Усі дії на сайті / в сервісі відбуваються анонімно.
+
+Ми не зберігаємо:
+
+ім’я
+номер телефону
+адресу / відділення Нової Пошти
+будь-які інші дані, які могли б вас ідентифікувати
+
+Навіть якщо під час оформлення замовлення ви вказуєте якісь дані (наприклад, для доставки), вони не зберігаються на наших серверах і використовуються лише в момент передачі замовлення перевізнику. Після цього вони видаляються і більше ніде не фіксуються.
+Ми не ведемо базу клієнтів, не збираємо аналітику, яка дозволяє вас ідентифікувати, і не передаємо нікому жодних даних, бо їх у нас просто немає.
+Якщо у вас виникнуть питання — напишіть нам, але пам’ятайте, що ми не зможемо знайти ваше замовлення за персональними даними, бо їх не зберігаємо.
+      </div>
+    </section>
+
+    <section class="page" id="page-terms">
+      <div class="wrap col-head">
+        <div class="col-meta"><span><span class="dot-lime"></span>// ПРАВОВЕ</span></div>
+        <h1>Умови обслуговування</h1>
+      </div>
+      <div class="wrap page-text">
+        Послуги/товари призначені виключно для осіб, які досягли 18 років.
+
+Оформлюючи замовлення, ви підтверджуєте, що вам виповнилося 18 років. Ми не несемо відповідальності за дії осіб, які приховали свій реальний вік.
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap cols">
+      <div>
+        <div class="news">
+          <h3>До нашої тусовки</h3>
+          <p>Дропи, рестоки та закриті акції.</p>
+          <form class="news-row" id="newsForm">
+            <input name="email" type="email" required placeholder="YOUR@EMAIL.COM" />
+            <button type="submit">→</button>
+          </form>
+        </div>
+      </div>
+      <div>
+        <div class="fl">Магазин</div>
+        <div class="flinks">
+          <a href="#catalog">Каталог товарів</a>
+          <a href="#delivery">Доставка і оплата</a>
+          <a href="#about">Про нас</a>
+          <a href="#contact">Звʼязок з нами</a>
+        </div>
+      </div>
+      <div>
+        <div class="fl">Правове</div>
+        <div class="flinks">
+          <a href="#privacy">Політика конфіденційності</a>
+          <a href="#terms">Умови обслуговування</a>
+          
+        </div>
+        <p class="legal-warn" id="warning"></p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="overlay" id="overlay"></div>
+  <aside class="drawer" id="cartDrawer">
+    <div class="dh"><strong>Кошик</strong><button class="btn btn-dark" id="closeCart">Закрити</button></div>
+    <div class="clist" id="cartList"></div>
+    <div class="df">
+      <div>Разом: <strong id="cartSum">0 ₴</strong></div>
+      <button class="btn btn-lime" id="checkoutBtn">Оформити в Telegram</button>
+    </div>
+  </aside>
+
+  <div class="modal" id="productModal">
+    <div class="sheet">
+      <button class="btn btn-dark" id="closeProduct">Закрити</button>
+      <div class="thumb" style="margin:12px 0;max-width:280px" id="pThumb"><div class="art" id="pArt"><span></span></div></div>
+      <h2 id="pTitle"></h2>
+      <p id="pDesc" style="color:#9a9a9a"></p>
+      <div class="price" id="pPrice" style="margin:12px 0"></div>
+      <button class="btn btn-lime" id="pAdd" style="width:100%">У кошик</button>
+      <button class="btn btn-dark" id="pAsk" style="width:100%;margin-top:8px">Написати про товар</button>
+    </div>
+  </div>
+
+  <div class="modal" id="checkoutModal">
+    <div class="sheet">
+      <div class="dh" style="padding:0 0 12px"><strong>Оформлення</strong><button class="btn btn-dark" id="closeCheckout">Закрити</button></div>
+      <form class="form" id="orderForm">
+        <div id="checkoutForm">
+          <input name="name" required placeholder="Імʼя" />
+          <input name="phone" required placeholder="Телефон" />
+          <input name="city" required placeholder="Місто" />
+          <input name="np" placeholder="Відділення Нової Пошти" />
+          <textarea name="comment" rows="3" placeholder="Коментар"></textarea>
+          <button class="btn btn-lime" type="submit">Підтвердити замовлення</button>
+        </div>
+        <div class="hidden" id="okBox" style="padding:20px 0;text-align:center">
+          <h3>Замовлення прийнято</h3>
+          <p id="okText" style="color:#9a9a9a;margin-top:8px"></p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <a class="tg-float" id="tgFloat" href="#" target="_blank" rel="noopener">Telegram</a>
+
+  <script src="products.js"></script>
+  <script src="store.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

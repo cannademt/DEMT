@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Кабінет</title>
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <div class="lock" id="lock">
+    <div class="box">
+      <h1>Кабінет</h1>
+      <p id="lockHint">Введіть PIN. Перший вхід створить новий код.</p>
+      <input id="pin" type="password" inputmode="numeric" placeholder="PIN (4+ цифри)" />
+      <button class="go" id="unlock">Увійти</button>
+      <a href="index.html">На вітрину</a>
+    </div>
+  </div>
+
+  <div class="app hidden" id="app">
+    <header>
+      <b>Кабінет</b>
+      <nav>
+        <button data-tab="products" class="on">Товари</button>
+        <button data-tab="cats">Категорії</button>
+        <button data-tab="shop">Магазин</button>
+        <button data-tab="data">Дані</button>
+      </nav>
+      <div class="right">
+        <a href="index.html" target="_blank">Вітрина</a>
+        <button id="logout">Вихід</button>
+      </div>
+    </header>
+
+    <section class="tab on" id="tab-products">
+      <div class="bar">
+        <h2>Товари</h2>
+        <button class="go" id="addProduct">+ Додати товар</button>
+      </div>
+      <div class="list" id="productList"></div>
+    </section>
+
+    <section class="tab" id="tab-cats">
+      <div class="bar">
+        <h2>Категорії</h2>
+        <button class="go" id="addCat">+ Категорія</button>
+      </div>
+      <p class="hint">Категорія «all / Каталог» потрібна для загального списку. Інші — пункти меню.</p>
+      <div class="list" id="catList"></div>
+    </section>
+
+    <section class="tab" id="tab-shop">
+      <div class="bar"><h2>Дані магазину</h2><button class="go" id="saveShop">Зберегти</button></div>
+      <form class="grid-form" id="shopForm"></form>
+    </section>
+
+    <section class="tab" id="tab-data">
+      <div class="bar"><h2>Імпорт / експорт</h2></div>
+      <p class="hint">Без бази: товари пишуться в products.js, фото кладете в папку images/. Потім усю папку магазину заливаєте на хостинг — сайт однаковий з будь-якого телефону.</p>
+      <div class="row">
+        <button class="go" id="exportJsBtn">Завантажити products.js</button>
+        <button class="ghost" id="exportPhotosBtn">Завантажити фото з кабінету</button>
+        <button class="ghost" id="exportBtn">Резервна копія JSON</button>
+        <label class="go ghost">Імпортувати JSON<input type="file" id="importFile" accept="application/json" hidden></label>
+        <button class="danger" id="resetBtn">Скинути до шаблону</button>
+      </div>
+      <div class="bar" style="margin-top:28px"><h2>Змінити PIN</h2></div>
+      <div class="row">
+        <input id="newPin" type="password" inputmode="numeric" placeholder="Новий PIN" />
+        <button class="go" id="savePin">Оновити PIN</button>
+      </div>
+    </section>
+  </div>
+
+  <div class="modal hidden" id="modal">
+    <form class="sheet" id="productForm">
+      <div class="bar">
+        <h2 id="modalTitle">Товар</h2>
+        <button type="button" class="ghost" id="closeModal">Закрити</button>
+      </div>
+      <input name="id" type="hidden" />
+      <label>Назва<input name="title" required placeholder="Назва товару"></label>
+      <div class="two">
+        <label>Ціна, грн<input name="price" type="number" min="0" step="1" required></label>
+        <label>Стара ціна<input name="oldPrice" type="number" min="0" step="1" placeholder="необовʼязково"></label>
+      </div>
+      <div class="two">
+        <label>Категорія<select name="category" id="catSelect"></select></label>
+        <label>Обʼєм / формат<input name="volume" placeholder="1 мл, 1 шт"></label>
+      </div>
+      <div class="two">
+        <label>Бейдж<input name="badge" placeholder="NEW / HIT"></label>
+        <label>Артикул на плейсхолдері<input name="art" placeholder="MINI"></label>
+      </div>
+      <label>Короткий рядок (спека)<input name="spec" placeholder="Формат, обʼєм, комплектація"></label>
+      <label>Другий рядок<input name="extra" placeholder="Подарунок до замовлення"></label>
+      <label>Опис на картці<textarea name="note" rows="3" placeholder="Текст, який бачить покупець на картці"></textarea></label>
+      <label>Повний опис<textarea name="desc" rows="4" placeholder="Детальний опис у вікні товару"></textarea></label>
+      <label class="check"><input name="inStock" type="checkbox" checked> В наявності</label>
+      <label>Шлях до фото в папці магазину
+        <input name="imagePath" placeholder="images/tovar-1.jpg">
+      </label>
+      <p class="hint">Покладіть файл у папку images/ і впишіть шлях. Або оберіть фото нижче — кабінет підкаже імʼя файлу.</p>
+      <label>Фото (превʼю в кабінеті)
+        <input name="file" type="file" accept="image/*">
+      </label>
+      <img id="preview" alt="" class="preview hidden">
+      <input name="image" type="hidden">
+      <div class="row">
+        <button class="go" type="submit">Зберегти товар</button>
+        <button class="danger" type="button" id="deleteProduct">Видалити</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="products.js"></script>
+  <script src="store.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
